@@ -72,8 +72,20 @@ string display(const Queue& q) {
 // SOAL 1 — enqueue()                                                  35 poin
 // =============================================================================
 bool enqueue(Queue& q, int nomor) {
-    // TODO: kerjakan di sini
-    return false;
+     Node* newNode = new Node;
+     if(newNode == NULL){
+          return false;
+     }
+     newNode->data = nomor;
+     newNode->next = NULL;
+     if(isEmpty(q)){
+          q.depan = newNode;
+          q.belakang = newNode;
+     }else{
+          q.belakang->next = newNode;
+          q.belakang = newNode;
+     }
+     return true;
 }
 
 // =============================================================================
