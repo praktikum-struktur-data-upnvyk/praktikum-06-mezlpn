@@ -92,8 +92,17 @@ bool enqueue(Queue& q, int nomor) {
 // SOAL 2 — dequeue()                                                  40 poin
 // =============================================================================
 bool dequeue(Queue& q, int& nomor) {
-    // TODO: kerjakan di sini
-    return false;
+     if(isEmpty(q)){
+          return false;
+     }
+     nomor = q.depan->data;
+     Node* temp = q.depan;
+     q.depan = q.depan->next;
+     if(q.depan == NULL){
+          q.belakang = NULL;
+     }
+     delete temp;
+     return true;
 }
 
 // =============================================================================
